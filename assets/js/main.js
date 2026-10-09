@@ -488,9 +488,10 @@
           link.setAttribute('data-caption', item.cap);
 
           var img = document.createElement('img');
-          img.src = 'assets/img/' + item.file;
+          img.src = 'assets/img/' + (item.thumb || item.file);
           img.alt = item.cap;
           img.loading = 'lazy';
+          img.decoding = 'async';
 
           var badge = document.createElement('span');
           badge.className = 'gallery-cap';
