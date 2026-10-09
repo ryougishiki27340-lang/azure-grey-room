@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure&#39;s Grey Room · 杉菜水姫 / Innocent Grey 美术资料室</title>
+    <meta name="description" content="整理杉菜水姫（すぎな みき）与 Innocent Grey 的美术素材、原画赏析与作品资讯。" />
+    <meta name="author" content="Azure" />
+    <meta name="theme-color" content="#FCFCFD" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Azure's Grey Room · 杉菜水姫 / Innocent Grey 美术资料室" />
+    <meta property="og:description" content="整理杉菜水姫与 Innocent Grey 的美术素材、原画赏析与作品资讯。" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script>
+      // 尽早应用主题，避免刷新时先亮后暗
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem('theme');
+        } catch (err) {
+          theme = null;
+        }
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div id="highlight-gradient" aria-hidden="true"></div>
+
+    <div class="shell">
+      <!-- ================= 吸顶导航 ================= -->
+      <header class="site-header">
+        <a class="brand" href="index.html" aria-label="回到首页">Azure&#39;s Grey Room</a>
+
+        <div class="header-actions">
+          <div class="nav-panel">
+            <nav class="nav-list" aria-label="主导航">
+              <div class="menu-with-dropdown">
+                <a class="nav-link" href="posts/index.html">
+                  文章
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                </a>
+                <div class="dropdown">
+                  <a href="posts/index.html#all">全部文章</a>
+                  <hr />
+                  <a href="posts/index.html#art">原画赏析</a>
+                  <a href="posts/index.html#news">作品资讯</a>
+                </div>
+              </div>
+              <a class="nav-link" href="gallery.html">画廊</a>
+              <a class="nav-link" href="#works">作品</a>
+              <a class="nav-link" href="#links">链接</a>
+              <a class="nav-link" href="#about">关于</a>
+            </nav>
+          </div>
+
+          <button id="toggleDarkMode" class="icon-btn" type="button" title="主题" aria-label="切换主题">
+            <svg class="icon-system" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M8 20h8" /></svg>
+            <svg class="icon-light" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19" /></svg>
+            <svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" /></svg>
+          </button>
+
+          <button id="toggleMenu" class="menu-btn" type="button" aria-label="展开菜单">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- ================= 主体 ================= -->
+      <main>
+        <section class="hero animate" id="content-header">
+          <div class="hero-main">
+            <img class="avatar" src="assets/img/avatar.jpg" alt="以杉菜水姫原画裁切而成的头像" width="512" height="512" fetchpriority="high" />
+
+            <div class="hero-text">
+              <h1 class="hero-name">Azure</h1>
+              <p class="hero-tagline">收集 Innocent Grey 的原画、配色，以及那些昭和年代的旧日气息。</p>
+
+              <div class="pills">
+                <span class="pill">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11Z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                  中国
+                </span>
+                <a class="pill" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.2-1.3-5.2-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3 0 0 1-.3 3.1 1.2a10.9 10.9 0 0 1 5.7 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.5.2 2.8.1 3 .8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5Z" /></svg>
+                  GitHub
+                </a>
+                <a class="pill" href="mailto:hello@example.com">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
+                  Email
+                </a>
+                <a class="pill" href="gallery.html">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="9" cy="10" r="1.6" /><path d="m4 18 5-6 4 4 3-3 4 5" /></svg>
+                  画廊
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="content" class="animate">
+          <!-- 关于 -->
+          <section class="section" id="about">
+            <div class="section-label"><h2>关于</h2></div>
+            <div class="section-body">
+              <p>
+                原画爱好者 /
+                <span class="redacted" title="把鼠标移上来">业余考据党</span>
+              </p>
+              <p>
+                你好，我是 Azure。这里收拢杉菜水姫（すぎな みき）与 Innocent Grey 的美术素材：
+                原画截取、配色与构图的整理笔记，以及作品与海外移植版的动向。
+              </p>
+              <p>
+                站名里的 <strong>Azure</strong> 取自《殻ノ少女》的原声集《AZURE》；而 Innocent Grey 这个名字，
+                按杉菜本人的解释是「纯粹的灰色」——既不是黑也不是白，所以既能写暗色的故事，也能写明亮的故事。
+                这个资料室想同时记下这两面。
+              </p>
+              <a class="btn" href="mailto:hello@example.com">
+                给我写封信
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+              </a>
+            </div>
+          </section>
+
+          <!-- 素材橱窗 -->
+          <section class="section" id="gallery">
+            <div class="section-label"><h2>素材橱窗</h2></div>
+            <div class="section-body">
+              <p>从画廊里挑了六张。点击可以放大，完整清单在画廊页。</p>
+              <div class="gallery-grid">
+                <a class="gallery-item" href="gallery.html" data-full="assets/img/gallery/g01.jpg" data-caption="FLOWERS 冬篇 · 雪夜里的双人舞">
+                  <img src="assets/img/gallery/g01.jpg" alt="FLOWERS 冬篇 · 雪夜里的双人舞" loading="lazy" width="1200" height="675" />
+                  <span class="gallery-cap">FLOWERS 冬篇</span>
+                </a>
+                <a class="gallery-item" href="gallery.html" data-full="assets/img/gallery/g02.jpg" data-caption="FLOWERS 秋篇 · 教室里的晨光">
+                  <img src="assets/img/gallery/g02.jpg" alt="FLOWERS 秋篇 · 教室里的晨光" loading="lazy" width="1200" height="675" />
+                  <span class="gallery-cap">FLOWERS 秋篇</span>
+                </a>
+                <a class="gallery-item" href="gallery.html" data-full="assets/img/gallery/g06.jpg" data-caption="The Shell Part I · 制服与并肩">
+                  <img src="assets/img/gallery/g06.jpg" alt="The Shell Part I · 制服与并肩" loading="lazy" width="1200" height="675" />
+                  <span class="gallery-cap">The Shell Part I</span>
+                </a>
+                <a class="gallery-item" href="gallery.html" data-full="assets/img/gallery/g07.jpg" data-caption="The Shell Part I · 和服与灯影">
+                  <img src="assets/img/gallery/g07.jpg" alt="The Shell Part I · 和服与灯影" loading="lazy" width="1200" height="675" />
+                  <span class="gallery-cap">和服与灯影</span>
+                </a>
+                <a class="gallery-item" href="gallery.html" data-full="assets/img/gallery/g09.jpg" data-caption="The Shell Part III · 红色楼梯间">
+                  <img src="assets/img/gallery/g09.jpg" alt="The Shell Part III · 红色楼梯间" loading="lazy" width="1200" height="675" />
+                  <span class="gallery-cap">红色楼梯间</span>
+                </a>
+                <a class="gallery-item" href="gallery.html" data-full="assets/img/gallery/g12.jpg" data-caption="殻ノ少女 · 灯下的书桌">
+                  <img src="assets/img/gallery/g12.jpg" alt="殻ノ少女 · 灯下的书桌" loading="lazy" width="1200" height="675" />
+                  <span class="gallery-cap">殻ノ少女</span>
+                </a>
+              </div>
+              <a class="btn" href="gallery.html">
+                进入画廊（12 张）
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+              </a>
+            </div>
+          </section>
+
+          <!-- 作品橱窗 -->
+          <section class="section" id="works">
+            <div class="section-label"><h2>作品</h2></div>
+            <div class="section-body">
+              <p>原画全部出自杉菜水姫之手，这里是各作的官方标题图与发售时间。</p>
+              <div class="work-grid">
+                <div class="work-card">
+                  <img src="assets/img/works/cartagra.jpg" alt="CARTAGRA 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">CARTAGRA カルタグラ〜ツキ狂イノ病〜</span>
+                  <span class="work-meta">2005.04.28</span>
+                  <span class="work-note">品牌首作，昭和背景的悬疑故事</span>
+                </div>
+                <div class="work-card">
+                  <img src="assets/img/works/kara-no-shojo.jpg" alt="殻ノ少女 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">殻ノ少女</span>
+                  <span class="work-meta">2008.07.04</span>
+                  <span class="work-note">系列起点，英文版由 MangaGamer 发行</span>
+                </div>
+                <div class="work-card">
+                  <img src="assets/img/works/shell-1.jpg" alt="The Shell Part I: Inferno 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">The Shell Part I: Inferno</span>
+                  <span class="work-meta">Steam 2023.07.27</span>
+                  <span class="work-note">《殻ノ少女》重制版，Shiravune 发行</span>
+                </div>
+                <div class="work-card">
+                  <img src="assets/img/works/shell-2.jpg" alt="The Shell Part II: Purgatorio 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">The Shell Part II: Purgatorio</span>
+                  <span class="work-meta">Steam 2024.04.18</span>
+                  <span class="work-note">即《虚ノ少女》（2013.02.08）</span>
+                </div>
+                <div class="work-card">
+                  <img src="assets/img/works/shell-3.jpg" alt="The Shell Part III: Paradiso 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">The Shell Part III: Paradiso</span>
+                  <span class="work-meta">Steam 2025.01.21</span>
+                  <span class="work-note">即《天ノ少女》（2020.12.25）</span>
+                </div>
+                <div class="work-card">
+                  <img src="assets/img/works/flowers-printemps.jpg" alt="FLOWERS 春篇 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">FLOWERS 春篇</span>
+                  <span class="work-meta">2014.04.18 · Steam 2016.08.17</span>
+                  <span class="work-note">全年龄向系列，以「スギナミキ」名义署名</span>
+                </div>
+                <div class="work-card">
+                  <img src="assets/img/works/flowers-ete.jpg" alt="FLOWERS 夏篇 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">FLOWERS 夏篇</span>
+                  <span class="work-meta">2015.04.17 · Steam 2018.07.26</span>
+                  <span class="work-note">春篇的延续，舞台转入夏季的学院</span>
+                </div>
+                <div class="work-card">
+                  <img src="assets/img/works/flowers-automne.jpg" alt="FLOWERS 秋篇 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">FLOWERS 秋篇</span>
+                  <span class="work-meta">2016.05.27 · Steam 2020.07.30</span>
+                  <span class="work-note">秋色最浓的一部，教室光线是重点</span>
+                </div>
+                <div class="work-card">
+                  <img src="assets/img/works/flowers-hiver.jpg" alt="FLOWERS 冬篇 标题图" loading="lazy" width="460" height="215" />
+                  <span class="work-name">FLOWERS 冬篇</span>
+                  <span class="work-meta">2017.09.15 · Steam 2022.06.18</span>
+                  <span class="work-note">四部曲收束，蓝与白的收尾</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 统计 -->
+          <section class="section" id="statistics">
+            <div class="section-label"><h2>统计</h2></div>
+            <div class="section-body">
+              <div class="stat-grid">
+                <div class="stat-card">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M8 3v4M16 3v4M3 11h18" /></svg>
+                  <div class="stat-value" data-days-online>—</div>
+                  <div class="stat-label">已运行天数</div>
+                </div>
+                <div class="stat-card">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+                  <div class="stat-value is-text">2026-10-09</div>
+                  <div class="stat-label">最近更新</div>
+                </div>
+                <div class="stat-card">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><circle cx="9" cy="10" r="1.6" /><path d="m4 18 5-6 4 4 3-3 4 5" /></svg>
+                  <div class="stat-value">12 张</div>
+                  <div class="stat-label">画廊素材</div>
+                </div>
+              </div>
+
+              <div class="stat-row">
+                <span>收录作品</span>
+                <a href="#works">9 部</a>
+              </div>
+              <div class="stat-row">
+                <span>全部文章</span>
+                <a href="posts/index.html">3 篇</a>
+              </div>
+            </div>
+          </section>
+
+          <!-- 最新文章 -->
+          <section class="section" id="posts">
+            <div class="section-label"><h2>最新文章</h2></div>
+            <div class="section-body post-list">
+              <a class="card post-card" href="posts/sugina-miki-style.html">
+                <img class="post-thumb" src="assets/img/cover-style.jpg" alt="" loading="lazy" width="1200" height="630" />
+                <span class="post-body">
+                  <h3>杉菜水姫的用色笔记：冷调、留白与窗边的光</h3>
+                  <p>从《カルタグラ》到《FLOWERS》，她为什么能把「安静」画得这么具体。</p>
+                  <span class="post-meta">
+                    <time datetime="2026-09-28">2026-09-28</time>
+                    <span class="tags"><span class="tag">原画赏析</span></span>
+                  </span>
+                </span>
+              </a>
+
+              <a class="card post-card" href="posts/innocent-grey-history.html">
+                <img class="post-thumb" src="assets/img/cover-news.jpg" alt="" loading="lazy" width="1200" height="630" />
+                <span class="post-body">
+                  <h3>Innocent Grey 作品年表与海外版本动向</h3>
+                  <p>从 2004 年分社设立到 The Shell 三部曲上架 Steam，一份可以直接查的清单。</p>
+                  <span class="post-meta">
+                    <time datetime="2026-08-14">2026-08-14</time>
+                    <span class="tags"><span class="tag">作品资讯</span></span>
+                  </span>
+                </span>
+              </a>
+
+              <a class="card post-card" href="posts/kara-no-shojo-trilogy.html">
+                <img class="post-thumb" src="assets/img/cover-works.jpg" alt="" loading="lazy" width="1200" height="630" />
+                <span class="post-body">
+                  <h3>《殻ノ少女》三部曲：越画越冷的冬天</h3>
+                  <p>雪、旧宅与昭和气质——三部曲里原画的变化轨迹。</p>
+                  <span class="post-meta">
+                    <time datetime="2026-07-02">2026-07-02</time>
+                    <span class="tags"><span class="tag">作品资讯</span></span>
+                  </span>
+                </span>
+              </a>
+
+              <a class="btn" href="posts/index.html">
+                查看全部文章
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+              </a>
+            </div>
+          </section>
+
+          <!-- 链接 -->
+          <section class="section" id="links">
+            <div class="section-label"><h2>链接</h2></div>
+            <div class="section-body">
+              <p>查资料时最常打开的几处，这份清单也靠它们才核对得起来。</p>
+              <div class="friend-grid">
+                <a class="friend-card" href="https://www.gungnir.co.jp/innocentgrey/" target="_blank" rel="noopener noreferrer">
+                  <span class="friend-avatar">IG</span>
+                  <span class="friend-info">
+                    <span class="friend-name">Innocent Grey 官方网站</span>
+                    <span class="friend-desc">有限会社グングニル 的作品页</span>
+                  </span>
+                </a>
+                <a class="friend-card" href="https://store.steampowered.com/app/2258770/" target="_blank" rel="noopener noreferrer">
+                  <span class="friend-avatar">S</span>
+                  <span class="friend-info">
+                    <span class="friend-name">Steam · The Shell 系列</span>
+                    <span class="friend-desc">本站素材的主要来源</span>
+                  </span>
+                </a>
+                <a class="friend-card" href="https://ja.wikipedia.org/wiki/%E6%9D%89%E8%8F%9C%E6%B0%B4%E5%A7%AB" target="_blank" rel="noopener noreferrer">
+                  <span class="friend-avatar">W</span>
+                  <span class="friend-info">
+                    <span class="friend-name">Wikipedia · 杉菜水姫</span>
+                    <span class="friend-desc">履历与作品列表的依据</span>
+                  </span>
+                </a>
+                <a class="friend-card" href="https://x.com/mikisugina" target="_blank" rel="noopener noreferrer">
+                  <span class="friend-avatar">X</span>
+                  <span class="friend-info">
+                    <span class="friend-name">杉菜水姫（@mikisugina）</span>
+                    <span class="friend-desc">本人账号，新绘与近况</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- ================= 页脚 ================= -->
+      <footer class="site-footer">
+        <div class="inner">
+          <div class="footer-left">
+            <span>© <span data-year>2026</span> Azure &nbsp;·&nbsp; 个人非商业性质的资料整理</span>
+            <span class="muted">
+              <a href="gallery.html#credits">素材版权与来源</a>
+              &nbsp;|&nbsp; 视觉形式参考
+              <a href="https://axi404.top" target="_blank" rel="noopener noreferrer">Axi&#39;s Blog</a>
+            </span>
+          </div>
+          <div class="footer-icons">
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12a11.5 11.5 0 0 0 7.9 10.9c.6.1.8-.2.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.2-1.3-5.2-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3 0 0 1-.3 3.1 1.2a10.9 10.9 0 0 1 5.7 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.5.2 2.8.1 3 .8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5Z" /></svg>
+            </a>
+            <a href="mailto:hello@example.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- 灯箱：点击画廊缩略图后显示大图 -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="查看大图">
+      <button class="lightbox-close" type="button">关闭（Esc）</button>
+      <figure>
+        <img src="assets/img/gallery/g01.jpg" alt="" />
+        <figcaption class="lightbox-cap"></figcaption>
+      </figure>
+    </div>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
