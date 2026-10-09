@@ -416,21 +416,29 @@
       if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
     };
 
-    document.querySelectorAll('.gallery-item[data-full]').forEach(function (item) {
-      item.addEventListener('click', function (event) {
+    var openLightbox = function (item) {
+      var full = item.getAttribute('data-full');
+      if (!full || !lbImg) return;
+
+      lbImg.src = full;
+      lbImg.alt = item.getAttribute('data-caption') || '';
+      if (lbCap) lbCap.textContent = item.getAttribute('data-caption') || '';
+
+      lightbox.classList.add('is-open');
+      document.body.classList.add('is-locked');
+      lastTrigger = item;
+      if (lbClose) lbClose.focus();
+    };
+
+    // 事件委托：静态与动态生成的画廊项都能打开灯箱
+    document.addEventListener('click', function (event) {
+      var item = event.target.closest
+        ? event.target.closest('.gallery-item[data-full]')
+        : null;
+      if (item) {
         event.preventDefault();
-        var full = item.getAttribute('data-full');
-        if (!full || !lbImg) return;
-
-        lbImg.src = full;
-        lbImg.alt = item.getAttribute('data-caption') || '';
-        if (lbCap) lbCap.textContent = item.getAttribute('data-caption') || '';
-
-        lightbox.classList.add('is-open');
-        document.body.classList.add('is-locked');
-        lastTrigger = item;
-        if (lbClose) lbClose.focus();
-      });
+        openLightbox(item);
+      }
     });
 
     lightbox.addEventListener('click', function (event) {
@@ -441,6 +449,60 @@
       if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
         closeLightbox();
       }
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     13. 数据驱动画廊：按 gallery-data.js 渲染分组网格
+     ------------------------------------------------------------------------ */
+  var galleryHosts = Array.prototype.slice.call(
+    document.querySelectorAll('[data-gallery]')
+  );
+
+  if (galleryHosts.length && window.GALLERY_DATA) {
+    var groups = [];
+    window.GALLERY_DATA.forEach(function (item) {
+      var last = groups[groups.length - 1];
+      if (!last || last.name !== item.group) {
+        last = { name: item.group, items: [] };
+        groups.push(last);
+      }
+      last.items.push(item);
+    });
+
+    galleryHosts.forEach(function (host) {
+      groups.forEach(function (group) {
+        var title = document.createElement('h3');
+        title.className = 'gallery-group-title';
+        title.textContent = group.name + ' · ' + group.items.length + ' 张';
+        host.appendChild(title);
+
+        var grid = document.createElement('div');
+        grid.className = 'gallery-grid';
+
+        group.items.forEach(function (item) {
+          var link = document.createElement('a');
+          link.className = 'gallery-item';
+          link.href = 'assets/img/' + item.file;
+          link.setAttribute('data-full', 'assets/img/' + item.file);
+          link.setAttribute('data-caption', item.cap);
+
+          var img = document.createElement('img');
+          img.src = 'assets/img/' + item.file;
+          img.alt = item.cap;
+          img.loading = 'lazy';
+
+          var badge = document.createElement('span');
+          badge.className = 'gallery-cap';
+          badge.textContent = group.name;
+
+          link.appendChild(img);
+          link.appendChild(badge);
+          grid.appendChild(link);
+        });
+
+        host.appendChild(grid);
+      });
     });
   }
 })();

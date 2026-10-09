@@ -1660,6 +1660,13 @@ sup {
   gap: 1rem;
 }
 
+.gallery-group-title {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+}
+
 .gallery-item {
   position: relative;
   display: block;
