@@ -18,7 +18,10 @@ azure-blog/
 │       ├── avatar.jpg          # 头像（官方原画裁切）
 │       ├── cover-*.jpg         # 三篇文章封面
 │       ├── banner-gallery.jpg  # 画廊页横幅
-│       ├── gallery/g01-g20.jpg # 画廊素材（g01-g12 来自官方宣传图，g13-g20 为游戏背景素材）
+│       ├── gallery/             # 画廊素材（共 210 张，由 assets/js/gallery-data.js 驱动渲染）
+│       │   ├── g01-g20.jpg      # 官方宣传素材（g13-g20 为游戏背景素材）
+│       │   ├── gb001-gb164.jpg  # B 站动态帖搬运
+│       │   └── gh001-gh026.jpg  # 《花葬》画集选页
 │       └── works/*.jpg         # 作品标题图（官方 capsule，460×215）
 └── posts/
     ├── index.html              # 文章列表（原画赏析 / 作品资讯 分类筛选）
@@ -119,4 +122,5 @@ ssh -o StrictHostKeyChecking=accept-new -R 80:localhost:8080 serveo.net
 - 吸顶导航离开页首后变成玻璃卡片，移动端收起为汉堡菜单；
 - 文章页有右侧目录（带滚动进度条）、右下角阅读进度圆环、标题 `#` 锚点、代码复制按钮；
 - 画廊与首页橱窗支持点击放大的灯箱（Esc 或点击空白处关闭）；
+- 画廊页按「官方宣传素材 / B 站动态搬运 / 花葬画集（选页）」三组数据驱动渲染；
 - 文章列表页支持按分类筛选（与 `#art` / `#news` 锚点联动）。
