@@ -1,0 +1,33 @@
+/* BGM 曲目清单（由 D:\歌曲 复制生成）
+   增删歌曲：把音频文件放入 assets/audio/ 后，在此数组增减对应条目；
+   或直接改 file 与 title 字段。file 为相对 assets/audio/ 的文件名。 */
+window.BGM_DATA = [
+  { file: 'MANYO - Cherry blossoms (樱花).mp3', title: 'Cherry blossoms (樱花)' },
+  { file: 'MANYO - Crescent.mp3', title: 'Crescent' },
+  { file: 'MANYO - Cruel night.mp3', title: 'Cruel night' },
+  { file: 'MANYO - Days.mp3', title: 'Days' },
+  { file: 'MANYO - Despair (绝望).mp3', title: 'Despair (绝望)' },
+  { file: 'MANYO - Discord.mp3', title: 'Discord' },
+  { file: 'MANYO - Egg of Neanis.mp3', title: 'Egg of Neanis' },
+  { file: 'MANYO - Fairy\'s dance.mp3', title: 'Fairy\'s dance' },
+  { file: 'MANYO - Holiday.mp3', title: 'Holiday' },
+  { file: 'MANYO - Investigation (调查).mp3', title: 'Investigation (调查)' },
+  { file: 'MANYO - karanoshojo.mp3', title: 'karanoshojo' },
+  { file: 'MANYO - Lilac.mp3', title: 'Lilac' },
+  { file: 'MANYO - Pursuit (追求).mp3', title: 'Pursuit (追求)' },
+  { file: 'MANYO - Reasoning.mp3', title: 'Reasoning' },
+  { file: 'MANYO - Reborn.mp3', title: 'Reborn' },
+  { file: 'MANYO - Relief.mp3', title: 'Relief' },
+  { file: 'MANYO - Sneaking (鬼鬼祟祟)(No.2 in A minor).mp3', title: 'Sneaking (鬼鬼祟祟)(No.2 in A minor)' },
+  { file: 'MANYO - The moon world.mp3', title: 'The moon world' },
+  { file: 'MANYO - Thin purple.mp3', title: 'Thin purple' },
+  { file: 'MANYO - White memory.mp3', title: 'White memory' },
+  { file: 'MANYO - エス.mp3', title: 'エス' },
+  { file: 'MANYO - ネアニスの卵.mp3', title: 'ネアニスの卵' },
+  { file: 'MANYO - パラノイア.mp3', title: 'パラノイア' },
+  { file: 'MANYO - ルリノトリ.mp3', title: 'ルリノトリ' },
+  { file: 'MANYO - 殻ノ少女.mp3', title: '殻ノ少女' },
+  { file: 'MANYO - 瑠璃の鳥 (Instrumental version).mp3', title: '瑠璃の鳥 (Instrumental version)' },
+  { file: 'MANYO - 瑠璃の鳥 (琉璃之鸟).mp3', title: '瑠璃の鳥 (琉璃之鸟)' },
+  { file: 'MANYO - 月世界.mp3', title: '月世界' },
+];

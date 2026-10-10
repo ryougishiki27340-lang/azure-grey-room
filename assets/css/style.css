@@ -1962,3 +1962,248 @@ body.is-locked {
 .spoiler .spoiler-body > :first-child {
   margin-top: 0;
 }
+
+/* --------------------------------------------------------------------------
+   21. BGM 播放器
+   -------------------------------------------------------------------------- */
+
+/* 全站迷你控制条：底部居中，所有页面共用 */
+#bgm-bar {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 1.25rem;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: fit-content;
+  max-width: min(94vw, 30rem);
+  margin-inline: auto;
+  padding: 0.375rem 0.625rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  background-color: hsl(var(--card) / 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.75rem;
+}
+
+#bgm-bar.is-playing {
+  border-color: hsl(var(--primary) / 0.45);
+}
+
+.bgm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: hsl(var(--muted-foreground));
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.bgm-btn:hover {
+  color: hsl(var(--primary));
+  background-color: hsl(var(--muted));
+}
+
+.bgm-title {
+  flex: 1;
+  min-width: 0;
+  padding-inline: 0.375rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: hsl(var(--muted-foreground));
+}
+
+.bgm-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  color: hsl(var(--muted-foreground));
+  transition: color 0.15s;
+}
+
+.bgm-open:hover {
+  color: hsl(var(--primary));
+}
+
+/* 音量滑块 */
+.bgm-volume {
+  flex: none;
+  width: 4.5rem;
+  height: 3px;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 999px;
+  background-color: hsl(var(--border));
+  outline: none;
+}
+
+.bgm-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--primary));
+}
+
+.bgm-volume::-moz-range-thumb {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--primary));
+}
+
+/* BGM 栏目页 */
+.bgm-now {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.75rem 1rem;
+}
+
+.bgm-now .bgm-btn {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid hsl(var(--border));
+  font-size: 0.875rem;
+}
+
+.bgm-now-title {
+  flex: 1;
+  min-width: 10rem;
+  font-weight: 600;
+}
+
+.bgm-now-progress {
+  flex-basis: 100%;
+  width: 100%;
+  height: 4px;
+  margin: 0.25rem 0 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 999px;
+  background-color: hsl(var(--border));
+  outline: none;
+}
+
+.bgm-now-progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--primary));
+}
+
+.bgm-now-progress::-moz-range-thumb {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  background-color: hsl(var(--primary));
+}
+
+.bgm-now-volume {
+  width: 6rem;
+}
+
+.bgm-time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.6875rem;
+  color: hsl(var(--muted-foreground));
+}
+
+/* 曲目列表 */
+.bgm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bgm-track {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-lg);
+  background-color: hsl(var(--card));
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.bgm-track:hover {
+  border-color: hsl(var(--foreground) / 0.2);
+  background-color: hsl(var(--muted) / 0.3);
+}
+
+.bgm-track.is-current {
+  border-color: hsl(var(--primary) / 0.55);
+  background-color: hsl(var(--muted) / 0.45);
+}
+
+.bgm-track .track-no {
+  flex: none;
+  width: 2rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}
+
+.bgm-track .track-name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bgm-track .track-state {
+  flex: none;
+  font-size: 0.875rem;
+  color: hsl(var(--primary));
+}
+
+.bgm-track .track-duration {
+  flex: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.6875rem;
+  color: hsl(var(--muted-foreground));
+}
+
+@media (max-width: 639px) {
+  #bgm-bar {
+    bottom: 1rem;
+    gap: 0;
+  }
+
+  .bgm-title {
+    max-width: 6rem;
+  }
+
+  .bgm-volume {
+    width: 3rem;
+  }
+}
