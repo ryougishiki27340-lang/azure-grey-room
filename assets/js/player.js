@@ -59,10 +59,25 @@
     playing: false
   };
 
+  // 开场曲目池：首次访问（无历史记录）时，从这里随机选一首尝试播放
+  // 满足「每次进入网站响起《殻ノ少女》或《瑠璃の鳥》随机一首」；
+  // 若浏览器已存有上次选择，则优先恢复上次曲目。
+  var STARTER_TITLES = ['殻ノ少女', '瑠璃の鳥'];
+  var starterPool = [];
+  tracks.forEach(function (track, i) {
+    var matched = STARTER_TITLES.some(function (name) {
+      return track.title.indexOf(name) === 0;
+    });
+    if (matched) starterPool.push(i);
+  });
+
   // 从 localStorage 恢复上次状态
   var savedIndex = parseInt(store.get(KEYS.track), 10);
+  var hasSavedTrack = store.get(KEYS.track) !== null;
   if (!isNaN(savedIndex) && savedIndex >= 0 && savedIndex < tracks.length) {
     state.index = savedIndex;
+  } else if (starterPool.length) {
+    state.index = starterPool[Math.floor(Math.random() * starterPool.length)];
   }
   var savedVolume = parseFloat(store.get(KEYS.volume));
   if (!isNaN(savedVolume) && savedVolume >= 0 && savedVolume <= 1) {
@@ -278,9 +293,9 @@
 
   /* ---------------- 初次加载：恢复上次状态 ---------------- */
   loadTrack(state.index, false);
-  if (savedPlaying) {
+  if (savedPlaying || !hasSavedTrack) {
     // 仅在用户此前确实播放过的情况下尝试恢复；
-    // 若浏览器拦截自动播放，play() 内部会优雅降级。
+    // 首次访问也尝试播放开场曲目；若浏览器拦截自动播放，play() 内部会优雅降级。
     window.setTimeout(function () {
       play();
     }, 300);
