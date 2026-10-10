@@ -99,6 +99,14 @@
     notify();
   });
 
+  // 有些浏览器在 canplay 之后才允许精确 seek，这里再校正一次
+  audio.addEventListener('canplay', function () {
+    if (!seeked && state.time > 0 && isFinite(audio.duration)) {
+      try { audio.currentTime = Math.min(state.time, audio.duration - 0.5); } catch (err) { }
+      seeked = true;
+    }
+  });
+
   audio.addEventListener('ended', function () {
     // 播完后自动切到下一首，形成连续播放列表
     playIndex((state.index + 1) % tracks.length);
@@ -129,6 +137,8 @@
   }
 
   /* ---------------- 控制方法 ---------------- */
+  var switchToken = 0; // 防止连续快速切歌时多个定时器互相覆盖
+
   function loadTrack(index, shouldPlay) {
     if (index < 0 || index >= tracks.length) return;
     state.index = index;
@@ -152,9 +162,11 @@
       return;
     }
     // 淡出 -> 换曲 -> 淡入
+    var token = ++switchToken;
     if (audioCtx && gainNode) {
       fadeTo(0, 0.35);
       window.setTimeout(function () {
+        if (token !== switchToken) return;
         loadTrack(index, true);
       }, 380);
     } else {

@@ -626,7 +626,14 @@
       });
     }
 
-    var step = function () {
+    var lastStep = 0;
+    var rafId = 0;
+
+    var step = function (ts) {
+      rafId = window.requestAnimationFrame(step);
+      // 约 20fps 就足够柔和，降低低配设备的渲染负担
+      if (ts - lastStep < 50) return;
+      lastStep = ts;
       ctx.clearRect(0, 0, W, H);
       for (var j = 0; j < petals.length; j++) {
         var p = petals[j];
@@ -645,9 +652,19 @@
         ctx.fillStyle = 'rgba(255, 183, 197, ' + p.alpha + ')';
         ctx.fill();
       }
-      window.requestAnimationFrame(step);
     };
 
-    window.requestAnimationFrame(step);
+    rafId = window.requestAnimationFrame(step);
+
+    // 页面不可见时暂停动画，回到页面再继续
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        window.cancelAnimationFrame(rafId);
+        rafId = 0;
+      } else if (!rafId) {
+        lastStep = 0;
+        rafId = window.requestAnimationFrame(step);
+      }
+    });
   })();
 })();
