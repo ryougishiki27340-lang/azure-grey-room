@@ -1912,3 +1912,53 @@ body.is-locked {
   color: hsl(var(--primary));
   border-color: hsl(var(--primary) / 0.4);
 }
+
+/* --------------------------------------------------------------------------
+   20. 剧透折叠组件
+   -------------------------------------------------------------------------- */
+.spoiler {
+  margin: 1.25em 0;
+  border: 1px dashed hsl(var(--border));
+  border-radius: var(--radius-lg);
+  background-color: hsl(var(--card));
+  overflow: hidden;
+}
+
+.spoiler > summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: hsl(var(--muted-foreground));
+  list-style: none;
+  user-select: none;
+}
+
+.spoiler > summary::-webkit-details-marker {
+  display: none;
+}
+
+.spoiler > summary::before {
+  content: '▸ ';
+  color: hsl(var(--primary));
+}
+
+.spoiler[open] > summary::before {
+  content: '▾ ';
+}
+
+.spoiler > summary:hover {
+  color: hsl(var(--primary));
+}
+
+.spoiler > summary + * {
+  margin-top: 0;
+}
+
+.spoiler .spoiler-body {
+  padding: 0 1rem 1rem;
+}
+
+.spoiler .spoiler-body > :first-child {
+  margin-top: 0;
+}

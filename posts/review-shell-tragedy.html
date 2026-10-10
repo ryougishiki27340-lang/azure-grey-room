@@ -3,22 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>他人眼中的 Innocent Grey：摘录与链接 • Azure&#39;s Grey Room</title>
-    <meta name="description" content="各平台对杉菜水姬与 Innocent Grey 的介绍、评价与感想摘录，附原文链接。" />
+    <title>真正的我到底在哪里：《壳之少女》偏执所导致的悲剧 • Azure&#39;s Grey Room</title>
+    <meta name="description" content="摘编自 B 站专栏的《壳之少女》感想：整体评价公开，剧透部分点击展开。" />
     <meta name="author" content="Azure" />
     <meta name="theme-color" content="#FCFCFD" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="他人眼中的 Innocent Grey：摘录与链接" />
+    <meta property="og:title" content="真正的我到底在哪里：《壳之少女》偏执所导致的悲剧" />
     <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <script>
       (function () {
         var theme = null;
-        try {
-          theme = localStorage.getItem('theme');
-        } catch (err) {
-          theme = null;
-        }
+        try { theme = localStorage.getItem('theme'); } catch (err) { theme = null; }
         if (theme !== 'light' && theme !== 'dark') {
           theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
@@ -33,7 +29,6 @@
     <div class="shell">
       <header class="site-header">
         <a class="brand" href="../index.html" aria-label="回到首页">Azure&#39;s Grey Room</a>
-
         <div class="header-actions">
           <div class="nav-panel">
             <nav class="nav-list" aria-label="主导航">
@@ -55,13 +50,11 @@
               <a class="nav-link" href="../index.html#about">关于</a>
             </nav>
           </div>
-
           <button id="toggleDarkMode" class="icon-btn" type="button" title="主题" aria-label="切换主题">
             <svg class="icon-system" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M8 20h8" /></svg>
             <svg class="icon-light" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19" /></svg>
             <svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" /></svg>
           </button>
-
           <button id="toggleMenu" class="menu-btn" type="button" aria-label="展开菜单">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
           </button>
@@ -75,9 +68,7 @@
             <ul>
               <li class="docs-group">
                 <div class="docs-group-title">原画赏析</div>
-                <ul>
-                  <li><a href="sugina-miki-style.html">用色笔记</a></li>
-                </ul>
+                <ul><li><a href="sugina-miki-style.html">用色笔记</a></li></ul>
               </li>
               <li class="docs-group">
                 <div class="docs-group-title">作品资讯</div>
@@ -91,9 +82,9 @@
                 <ul>
                   <li><a href="interview-sugina-miki.html">濡乌访谈摘编</a></li>
                   <li><a href="review-ten-no-shojo.html">天少系列解读</a></li>
-                  <li><a href="review-shell-tragedy.html">壳少偏执悲剧</a></li>
+                  <li class="is-current"><a href="review-shell-tragedy.html">壳少偏执悲剧</a></li>
                   <li><a href="review-shell-hope.html">壳少宛若新生</a></li>
-                  <li class="is-current"><a href="reviews.html">他人评价精选</a></li>
+                  <li><a href="reviews.html">他人评价精选</a></li>
                 </ul>
               </li>
             </ul>
@@ -102,10 +93,9 @@
           <article>
             <div id="content-header" class="animate">
               <div class="hero-image">
-                <img class="cover" src="../assets/img/cover-reviews.jpg" alt="他人眼中的 Innocent Grey：摘录与链接" width="1200" height="630" fetchpriority="high" />
-                <img class="cover-blur" src="../assets/img/cover-reviews.jpg" alt="" aria-hidden="true" width="1200" height="630" />
+                <img class="cover" src="../assets/img/cover-review-shell.jpg" alt="《壳之少女》偏执所导致的悲剧" width="1200" height="630" fetchpriority="high" />
+                <img class="cover-blur" src="../assets/img/cover-review-shell.jpg" alt="" aria-hidden="true" width="1200" height="630" />
               </div>
-
               <div class="article-info">
                 <span class="info-item">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M8 3v4M16 3v4M3 11h18" /></svg>
@@ -121,101 +111,113 @@
                 </span>
               </div>
 
-              <h1 class="article-title">他人眼中的 Innocent Grey：摘录与链接</h1>
-
+              <h1 class="article-title">真正的我到底在哪里：《壳之少女》偏执所导致的悲剧</h1>
               <div class="article-desc">
-                <blockquote>
-                  <q>一家不流于庸俗的品牌，一位个性十足的社长。</q>
-                </blockquote>
+                <blockquote><q>请找到真正的我。银铃般的少女，委托了作为侦探的老师——这就是相遇的开始。</q></blockquote>
               </div>
-
               <hr class="divider" />
             </div>
 
             <div id="content" class="prose-wrap animate">
               <div class="prose" data-progress-target>
                 <p>
-                  这一页收集各平台对杉菜水姬与 Innocent Grey 的介绍、评价和感想。为了尊重原作者，
-                  这里只做简短摘录并附上原文链接，完整内容请点开原文阅读。
+                  这篇摘编自 B 站专栏《真正的我到底在哪里？偏执所导致的悲剧》，
+                  是一位玩家的《壳之少女》通关感想。前半段整体评价可以直接阅读；
+                  涉及真凶、家族真相与结局的部分折叠在剧透区里。
                 </p>
 
-                <h2 id="bili">从昭和猎奇到悬疑百合<a class="heading-anchor" href="#bili">#</a></h2>
+                <h2 id="impression">整体印象<a class="heading-anchor" href="#impression">#</a></h2>
                 <p>
-                  B 站专栏《从昭和猎奇到悬疑百合——某位放弃“拳击手”梦想的画师之路》
-                  （<a href="https://b23.tv/oVwciTO" target="_blank" rel="noopener noreferrer">原文链接</a>）
-                  梳理了杉菜水姬从拳击梦想到代代木学院、从 mink 到九頭龍、再到自立门户建立 Gungnir 的经历。摘录两段：
+                  作者三年前玩到一半搁置，三年后一口气打通，心情复杂：「是对剧中角色命运的无奈，
+                  抑或是对剧本家恶意的愤怒，究竟是什么心情我也不得而知。」前作《恋狱月狂病》尚有救赎，
+                  而本作「救赎全无」。
                 </p>
-                <blockquote>
-                  <p>
-                    「Innocent Grey这个品牌的主宰者是杉菜水姬，看着就像个水灵灵美少女的名字引人遐思；
-                    只可惜熟悉IG的玩家都知道，这位社长可是个不折不扣的男人。」
-                  </p>
-                </blockquote>
-                <blockquote>
-                  <p>
-                    「杉菜水姬在采访时，曾直言『萌えは必要ない』，在这个时代万物皆可萌的时代是相当格格不入的发言。……
-                    所幸的是，杉菜水姬还是把Innocent Grey走的这条路坚持了下来。」
-                  </p>
-                </blockquote>
                 <p>
-                  原文还讲到他如何以《青涩宝贝》的原画师甲斐智久为早期参照，
-                  以及《恋狱月狂病》《壳之少女》一路走来的历程，值得全文一读。
+                  女主角朽木冬子出场不算多，但无疑是作品的灵魂：她寻求「真正的我」，
+                  并真的在现实中找到了证据——自己的母亲只是养母。她留下的最后一幅画《琉璃之鸟》，
+                  画的是一只想要挣脱蛋壳飞向天空的幼鸟。主人公时坂玲人是一名侦探，
+                  六年前妻子死于连环杀人案，如今的新案件渐渐与旧案纠缠到一起，
+                  他也以女子学校特聘讲师的身份深入调查。
+                </p>
+                <p>
+                  作者对几位角色的看法：紫魅力最大；活泼的椎子是仅次于冬子的死亡带来的遗憾；
+                  透子对冬子病态的崇拜间接把挚友推向悲剧；混血少女史黛拉出场不多却作用很大。
+                  他认为这是一部「画风漂亮整洁、内容却黑暗深沉」的作品，上一秒还在谈笑的少女，
+                  下一秒就可能被残忍杀害；当最后冬子躺在病床上叫「老师」时，情绪还是止不住地涌上来。
+                </p>
+                <p>
+                  他还给出了自己的评分分配：十分里三分给杉菜水姬的画风、两分给 CV 的努力、
+                  两分给音乐、三分给剧本；搜证推理环节对他来说是折磨，只能照着攻略打完。
+                  不过他也认为，作为推理游戏《壳》并不算出色，某些环节略显牵强，
+                  《虚之少女》的完成度其实更高，差的只是一个像朽木冬子那样有魅力的女主角。
                 </p>
 
-                <h2 id="tieba">贴吧与论坛的讨论<a class="heading-anchor" href="#tieba">#</a></h2>
-                <ul>
-                  <li>
-                    百度贴吧「壳之少女吧」：
-                    <a href="https://tieba.baidu.com/wxf/1794029?kw=%E5%A3%B3%E4%B9%8B%E5%B0%91%E5%A5%B3&fr=sharewise" target="_blank" rel="noopener noreferrer">打开</a>
-                    —— 系列玩家讨论剧情、原画与移植版的聚集地。
-                  </li>
-                  <li>
-                    百度贴吧「innocentgrey吧」：
-                    <a href="https://tieba.baidu.com/wxf/3805914?kw=innocentgrey&fr=sharewise" target="_blank" rel="noopener noreferrer">打开</a>
-                    —— 品牌层面的讨论、图包与考据分享。
-                  </li>
-                </ul>
+                <details class="spoiler">
+                  <summary>⚠ 以下内容涉及真凶、真相与结局，点击展开</summary>
+                  <div class="spoiler-body">
+                    <h3 id="truth">偏执、家族与结局</h3>
+                    <p>
+                      作者认为《壳之少女》说到底是个偏执的故事：老艺术家间宫心像对画作《壳之少女》的偏执，
+                      间宫心尔对画、对「母亲」的偏执，透子母亲对儿子的偏执——她为了帮助儿子抛尸，
+                      竟在不知情中抛掉了自己女儿的四肢。冬子对自我追求的偏执，让她直到最后都没能与养母打开心扉。
+                      主人公玲人同样被对亡妻与六识命的执念困住。最后的真相像一场家族伦理剧，
+                      许多问题留给了玩家自己思考。
+                    </p>
+                    <p>
+                      结局一共有三个：其一是冬子生还却失去四肢，也许终能与养母达成理解，
+                      但也失去了挣脱蛋壳的翅膀；其二是冬子成为「真正的壳之少女」，
+                      最后对主角说的那声「谢谢老师」令人心如刀绞；其三是承接《虚之少女》的真结局，
+                      冬子不知所踪，玲人只能不断追寻。作者感叹：「故事的最后，火车上的青年把《壳之少女》
+                      又交到了另一个痴迷其中的少年手上——人性的黑暗依旧在持续着。」
+                    </p>
+                  </div>
+                </details>
 
-                <h2 id="note">转载说明<a class="heading-anchor" href="#note">#</a></h2>
                 <p>
-                  本页摘录仅为介绍目的，版权归原作者所有；若作者不希望被引用，请来信告知，我会立即移除。
-                  也欢迎推荐更多值得收录的文章。
+                  文末作者写道：当玲人回到井之头公园，看向冬子曾经坐过的长椅，
+                  银铃般的笑声仿佛还在耳边回荡；再仔细看时，长椅上空无一人。
+                  故事落幕，而朽木冬子久久地缠绕在读者心头。
                 </p>
+
+                <div class="copyright">
+                  <dl>
+                    <dt>文章链接</dt>
+                    <dd>https://azure.example.com/posts/review-shell-tragedy.html</dd>
+                    <dt>作者</dt>
+                    <dd>Azure（摘编整理）</dd>
+                    <dt>首发于</dt>
+                    <dd>2026-10-10</dd>
+                    <dt>参考文献</dt>
+                    <dd>《真正的我到底在哪里？偏执所导致的悲剧》，原文：<a href="https://b23.tv/y3CsTfh" target="_blank" rel="noopener noreferrer">b23.tv/y3CsTfh</a></dd>
+                    <dt>版权</dt>
+                    <dd>原文版权归原作者所有，本页为介绍性质的摘编</dd>
+                  </dl>
+                  <p class="coffee">如果这篇摘编帮到了你，欢迎请我喝一杯咖啡 ☕。</p>
+                </div>
+
+                <nav class="post-nav" aria-label="相邻文章">
+                  <a href="review-shell-hope.html">
+                    <span class="dir">更早的一篇</span>
+                    <span class="name">《壳之少女》——宛若新生般的希冀</span>
+                  </a>
+                  <a class="next" href="review-ten-no-shojo.html">
+                    <span class="dir">更新的一篇</span>
+                    <span class="name">青鸟为始，星辰而终：《天之少女》系列解读摘编</span>
+                  </a>
+                </nav>
+
+                <div class="comments-placeholder">
+                  评论区还没接上。想补充或勘误的话，欢迎<a href="mailto:hello@example.com">写信给我</a>。
+                </div>
               </div>
-            </div>
-
-            <div class="copyright">
-              <dl>
-                <dt>文章链接</dt>
-                <dd>https://azure.example.com/posts/reviews.html</dd>
-                <dt>作者</dt>
-                <dd>Azure（导读与摘录）</dd>
-                <dt>首发于</dt>
-                <dd>2026-10-10</dd>
-                <dt>版权</dt>
-                <dd>摘录内容版权归原作者所有，仅作介绍目的引用</dd>
-              </dl>
-              <p class="coffee">如果这篇整理帮到了你，欢迎请我喝一杯咖啡 ☕。</p>
-            </div>
-
-            <nav class="post-nav" aria-label="相邻文章">
-              <a href="sugina-miki-style.html">
-                <span class="dir">更早的一篇</span>
-                <span class="name">杉菜水姫的用色笔记：冷调、留白与窗边的光</span>
-              </a>
-            </nav>
-
-            <div class="comments-placeholder">
-              评论区还没接上。想推荐文章或勘误的话，欢迎<a href="mailto:hello@example.com">写信给我</a>。
             </div>
           </article>
 
           <aside class="toc">
             <h2 class="toc-title">目录</h2>
             <ol>
-              <li><span class="toc-track"><i></i></span><a href="#bili">从昭和猎奇到悬疑百合</a></li>
-              <li><span class="toc-track"><i></i></span><a href="#tieba">贴吧与论坛的讨论</a></li>
-              <li><span class="toc-track"><i></i></span><a href="#note">转载说明</a></li>
+              <li><span class="toc-track"><i></i></span><a href="#impression">整体印象</a></li>
+              <li><span class="toc-track"><i></i></span><a href="#truth">偏执、家族与结局（剧透区）</a></li>
             </ol>
           </aside>
         </div>
