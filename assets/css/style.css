@@ -1870,3 +1870,45 @@ body.is-locked {
     font-size: 1rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   19. 趣味交互：花瓣 / 返回顶部
+   -------------------------------------------------------------------------- */
+#petals {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#to-top {
+  position: fixed;
+  inset-block-end: 1.5rem;
+  inset-inline-start: 1.5rem;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  color: hsl(var(--muted-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: 999px;
+  background-color: hsl(var(--card));
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.5rem);
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+#to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#to-top:hover {
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary) / 0.4);
+}

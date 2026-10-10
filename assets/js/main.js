@@ -11,7 +11,7 @@
      站点配置：把这里改成你自己的数据
      ------------------------------------------------------------------------ */
   var SITE = {
-    startDate: '2024-03-15', // 站点上线日期，用于计算「已运行天数」
+    startDate: '2026-10-09', // 站点上线日期，用于计算「已运行天数」
     wordsPerMinute: 400 // 阅读速度（字/分钟），用于估算阅读时长
   };
 
@@ -506,4 +506,148 @@
       });
     });
   }
+
+  /* ------------------------------------------------------------------------
+     14. 今日选图：按日期从画廊取一张
+     ------------------------------------------------------------------------ */
+  var dailyHosts = Array.prototype.slice.call(
+    document.querySelectorAll('[data-daily]')
+  );
+
+  if (dailyHosts.length && window.GALLERY_DATA && window.GALLERY_DATA.length) {
+    var now = new Date();
+    var seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+    var idx = seed % window.GALLERY_DATA.length;
+    var pick = window.GALLERY_DATA[idx];
+
+    dailyHosts.forEach(function (host) {
+      var link = document.createElement('a');
+      link.className = 'gallery-item';
+      link.href = 'assets/img/' + pick.file;
+      link.setAttribute('data-full', 'assets/img/' + pick.file);
+      link.setAttribute('data-caption', '今日选图：' + pick.cap + '（' + pick.group + '）');
+
+      var img = document.createElement('img');
+      img.src = 'assets/img/' + (pick.thumb || pick.file);
+      img.alt = pick.cap;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+
+      var badge = document.createElement('span');
+      badge.className = 'gallery-cap';
+      badge.textContent = '今日选图 · ' + pick.group;
+
+      link.appendChild(img);
+      link.appendChild(badge);
+      host.appendChild(link);
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     15. 随机浏览：点击随机打开一张画廊图
+     ------------------------------------------------------------------------ */
+  var randomBtn = document.getElementById('random-gallery');
+  if (randomBtn && window.GALLERY_DATA && window.GALLERY_DATA.length) {
+    randomBtn.addEventListener('click', function () {
+      var item = window.GALLERY_DATA[Math.floor(Math.random() * window.GALLERY_DATA.length)];
+      var lightbox = document.getElementById('lightbox');
+      if (!lightbox) return;
+      var lbImg = lightbox.querySelector('img');
+      var lbCap = lightbox.querySelector('.lightbox-cap');
+      if (lbImg) {
+        lbImg.src = 'assets/img/' + item.file;
+        lbImg.alt = item.cap;
+      }
+      if (lbCap) lbCap.textContent = item.cap + '（' + item.group + '）';
+      lightbox.classList.add('is-open');
+      document.body.classList.add('is-locked');
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     16. 返回顶部按钮
+     ------------------------------------------------------------------------ */
+  var topBtn = document.createElement('button');
+  topBtn.type = 'button';
+  topBtn.id = 'to-top';
+  topBtn.innerHTML = '回到顶部 ↑';
+  document.body.appendChild(topBtn);
+
+  topBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  window.addEventListener(
+    'scroll',
+    function () {
+      topBtn.classList.toggle('is-visible', window.scrollY > 600);
+    },
+    { passive: true }
+  );
+
+  /* ------------------------------------------------------------------------
+     17. 花瓣飘落（低负载粒子，尊重减少动效偏好）
+     ------------------------------------------------------------------------ */
+  (function () {
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.innerWidth < 480
+    ) {
+      return;
+    }
+
+    var canvas = document.createElement('canvas');
+    canvas.id = 'petals';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(canvas);
+
+    var ctx = canvas.getContext('2d');
+    var petals = [];
+    var MAX = 24;
+    var W = 0;
+    var H = 0;
+
+    var resize = function () {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (var i = 0; i < MAX; i++) {
+      petals.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: 3 + Math.random() * 4,
+        vy: 0.3 + Math.random() * 0.7,
+        vx: 0.2 + Math.random() * 0.6,
+        sway: Math.random() * Math.PI * 2,
+        alpha: 0.12 + Math.random() * 0.25
+      });
+    }
+
+    var step = function () {
+      ctx.clearRect(0, 0, W, H);
+      for (var j = 0; j < petals.length; j++) {
+        var p = petals[j];
+        p.y += p.vy;
+        p.x += Math.sin(p.sway) * 0.4 + p.vx * 0.1;
+        p.sway += 0.02;
+        if (p.y > H + 12) {
+          p.y = -12;
+          p.x = Math.random() * W;
+        }
+        if (p.x > W + 12) p.x = -12;
+        if (p.x < -12) p.x = W + 12;
+
+        ctx.beginPath();
+        ctx.ellipse(p.x, p.y, p.r, p.r * 0.62, p.sway, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 183, 197, ' + p.alpha + ')';
+        ctx.fill();
+      }
+      window.requestAnimationFrame(step);
+    };
+
+    window.requestAnimationFrame(step);
+  })();
 })();
